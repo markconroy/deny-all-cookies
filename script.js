@@ -21,5 +21,10 @@ allConsentItems.forEach(item => {
 
 if (document.querySelector('.fc-confirm-choices')) {
   confirmButton = document.querySelector('.fc-confirm-choices');
-  confirmButton.click();
 }
+
+if (document.querySelector('#CybotCookiebotDialogBodyButtonDecline')) {
+  confirmButton = document.querySelector('#CybotCookiebotDialogBodyButtonDecline');
+}
+
+confirmButton.click();
