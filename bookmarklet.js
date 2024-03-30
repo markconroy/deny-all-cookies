@@ -4,9 +4,9 @@
 
 const denyAllCookiesBookmarkletScript = document.createElement('script');
 denyAllCookiesBookmarkletScript.src = 'https://deny-all-cookies.mark.ie/script.js';
+denyAllCookiesBookmarkletScript.setAttribute('id', 'deny-all-cookies');
 
 const denyAllCookiesBookmarkletBody = document.querySelector('body');
-denyAllCookiesBookmarkletBody.setAttribute('id', 'deny-all-cookies');
 denyAllCookiesBookmarkletBody.appendChild(denyAllCookiesBookmarkletScript);
 
 const denyAllCookiesDOMElement = document.querySelector('#deny-all-cookies');
