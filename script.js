@@ -3,10 +3,6 @@ const legitimateInterestItems = document.querySelectorAll('.fc-preference-legiti
 const consentItems = document.querySelectorAll('.fc-preference-consent');
 let confirmButton;
 
-if (document.querySelector('.fc-confirm-choices')) {
-  confirmButton = document.querySelector('.fc-confirm-choices');
-}
-
 if (legitimateInterestItems) {
   legitimateInterestItems.forEach(item => {
     allConsentItems.push(item);
@@ -21,5 +17,9 @@ if (consentItems) {
 
 allConsentItems.forEach(item => {
   item.removeAttribute('checked');
-  confirmButton.click();
 });
+
+if (document.querySelector('.fc-confirm-choices')) {
+  confirmButton = document.querySelector('.fc-confirm-choices');
+  confirmButton.click();
+}
