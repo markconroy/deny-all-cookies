@@ -27,4 +27,8 @@ if (document.querySelector('#CybotCookiebotDialogBodyButtonDecline')) {
   confirmButton = document.querySelector('#CybotCookiebotDialogBodyButtonDecline');
 }
 
+if (document.querySelector('.ot-pc-refuse-all-handler')) {
+  confirmButton = document.querySelector('.ot-pc-refuse-all-handler');
+}
+
 confirmButton.click();
