@@ -35,15 +35,14 @@ if (document.querySelector('#CybotCookiebotDialogBodyButtonDecline')) {
 if (document.querySelector('#onetrust-reject-all-handler')) {
   confirmButton = document.querySelector('#onetrust-reject-all-handler');
 }
+if (document.querySelector('.ot-pc-refuse-all-handler')) {
+  confirmButton = document.querySelector('.ot-pc-refuse-all-handler');
+}
 
 const oneTrustDialogOpener = document.querySelector('#onetrust-pc-btn-handler');
-let oneTrustsubmitButton = document.querySelector('.ot-pc-refuse-all-handler');
 
-if (submitButton) {
-  submitButton.click();
-} else {
+if (!confirmButton) {
   oneTrustDialogOpener.click();
-  handleOneTrust();
   // Add a second check here for the submit button
   // Redeclare the submitButton variable
   // Call the submitButton.click() method
@@ -52,9 +51,9 @@ if (submitButton) {
   const observer = new MutationObserver((mutationsList, observer) => {
     for(let mutation of mutationsList) {
       if (mutation.type === 'childList') {
-        oneTrustsubmitButton = document.querySelector('.ot-pc-refuse-all-handler');
-        if (oneTrustsubmitButton) {
-          oneTrustsubmitButton.click();
+        confirmButton = document.querySelector('.ot-pc-refuse-all-handler');
+        if (confirmButton) {
+          // oneTrustsubmitButton.click();
           observer.disconnect();
         }
       }
@@ -64,10 +63,10 @@ if (submitButton) {
   observer.observe(document.body, { childList: true, subtree: true });
 }
 
-function handleOneTrust() {
-	const submitButton = document.querySelector('.ot-pc-refuse-all-handler');
-  console.log(submitButton);
-	submitButton.click();
-}
+// function handleOneTrust() {
+// 	const submitButton = document.querySelector('.ot-pc-refuse-all-handler');
+//   console.log(submitButton);
+// 	submitButton.click();
+// }
 
 confirmButton.click();
