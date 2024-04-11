@@ -1,4 +1,5 @@
 let confirmButton;
+let dialogOpener;
 
 const allConsentItems = [];
 const legitimateInterestItems = document.querySelectorAll('.fc-preference-legitimate-interest');
@@ -39,10 +40,12 @@ if (document.querySelector('.ot-pc-refuse-all-handler')) {
   confirmButton = document.querySelector('.ot-pc-refuse-all-handler');
 }
 
-const oneTrustDialogOpener = document.querySelector('#onetrust-pc-btn-handler');
+if (document.querySelector('#onetrust-pc-btn-handler')) {
+  dialogOpener = document.querySelector('#onetrust-pc-btn-handler');
+}
 
 if (!confirmButton) {
-  oneTrustDialogOpener.click();
+  dialogOpener.click();
   // Add a second check here for the submit button
   // Redeclare the submitButton variable
   // Call the submitButton.click() method
@@ -51,13 +54,16 @@ if (!confirmButton) {
   const observer = new MutationObserver((mutationsList, observer) => {
     for(let mutation of mutationsList) {
       if (mutation.type === 'childList') {
+        console.log(mutation);
         confirmButton = document.querySelector('.ot-pc-refuse-all-handler');
         const saveButton = document.querySelector('.save-preference-btn-handler');
         if (confirmButton) {
-          // oneTrustsubmitButton.click();
+          // The confirm button gets clicked at the end of this script.
+          // If the confirm button is found, the observer disconnects
           observer.disconnect();
         } else if (saveButton) {
           saveButton.remove();
+          console.log(saveButton);
           observer.disconnect();
         }
       }
