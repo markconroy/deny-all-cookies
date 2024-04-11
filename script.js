@@ -52,8 +52,12 @@ if (!confirmButton) {
     for(let mutation of mutationsList) {
       if (mutation.type === 'childList') {
         confirmButton = document.querySelector('.ot-pc-refuse-all-handler');
+        const saveButton = document.querySelector('.save-preference-btn-handler');
         if (confirmButton) {
           // oneTrustsubmitButton.click();
+          observer.disconnect();
+        } else if (saveButton) {
+          saveButton.remove();
           observer.disconnect();
         }
       }
