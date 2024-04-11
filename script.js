@@ -71,6 +71,8 @@ if (!confirmButton) {
             item.click();
           });
 
+          console.log(allConsentItems);
+
           setTimeout(() => {
             removeAllCheckedItems();
           }, 1000);
