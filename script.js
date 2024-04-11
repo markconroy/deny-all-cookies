@@ -17,9 +17,13 @@ if (consentItems) {
   });
 }
 
-allConsentItems.forEach(item => {
-  item.removeAttribute('checked');
-});
+function removeAllCheckedItems() {
+  allConsentItems.forEach(item => {
+    item.removeAttribute('checked');
+  });
+}
+
+removeAllCheckedItems();
 
 if (document.querySelector('.fc-confirm-choices')) {
   confirmButton = document.querySelector('.fc-confirm-choices');
@@ -54,7 +58,6 @@ if (!confirmButton) {
   const observer = new MutationObserver((mutationsList, observer) => {
     for(let mutation of mutationsList) {
       if (mutation.type === 'childList') {
-        console.log(mutation);
         confirmButton = document.querySelector('.ot-pc-refuse-all-handler');
         const saveButton = document.querySelector('.save-preference-btn-handler');
         if (confirmButton) {
@@ -62,6 +65,16 @@ if (!confirmButton) {
           // If the confirm button is found, the observer disconnects
           observer.disconnect();
         } else if (saveButton) {
+          const preferenceItems = document.querySelectorAll('.category-switch-handler');
+          preferenceItems.forEach(item => {
+            allConsentItems.push(item);
+            item.setAttribute('checked', 'true');
+          });
+
+          setTimeout(() => {
+            removeAllCheckedItems();
+          }, 1000);
+
           saveButton.remove();
           console.log(saveButton);
           observer.disconnect();
