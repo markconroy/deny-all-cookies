@@ -55,18 +55,21 @@ if (document.querySelector('#CybotCookiebotDialogBodyButtonDecline')) {
 if (document.querySelector('#onetrust-reject-all-handler')) {
   const confirmButton = document.querySelector('#onetrust-reject-all-handler');
   confirmButton.click();
-} else if (document.querySelector('.ot-pc-refuse-all-handler')) {
-  const confirmButton = document.querySelector('.ot-pc-refuse-all-handler');
-  confirmButton.click();
 } else if (document.querySelector('#onetrust-pc-btn-handler')) {
   // OneTrust if there is no decline all button, but is a 'Manage' button.
   const dialogOpener = document.querySelector('#onetrust-pc-btn-handler');
   dialogOpener.click();
 
   if (document.querySelector('.save-preference-btn-handler')) {
-    const savePreferencesButton = document.querySelector('.save-preference-btn-handler');
-    const preferenceItems = document.querySelectorAll('.category-switch-handler');
-    uncheckAll(preferenceItems);
-    savePreferencesButton.click();
+    if (document.querySelector('.ot-pc-refuse-all-handler')) {
+      const confirmButton = document.querySelector('.ot-pc-refuse-all-handler');
+      confirmButton.click();
+      return;
+    } else if (document.querySelector('.save-preference-btn-handler')) {
+      const savePreferencesButton = document.querySelector('.save-preference-btn-handler');
+      const preferenceItems = document.querySelectorAll('.category-switch-handler');
+      uncheckAll(preferenceItems);
+      savePreferencesButton.click();
+    }
   }
 }
