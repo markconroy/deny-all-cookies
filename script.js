@@ -68,7 +68,7 @@ if (!confirmButton) {
           const preferenceItems = document.querySelectorAll('.category-switch-handler');
           preferenceItems.forEach(item => {
             allConsentItems.push(item);
-            item.click();
+            // item.click();
           });
 
           console.log(allConsentItems);
