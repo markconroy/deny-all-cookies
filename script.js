@@ -70,7 +70,7 @@ if (!confirmButton) {
           const preferenceItems = document.querySelectorAll('.category-switch-handler');
           preferenceItems.forEach(item => {
             allConsentItems.push(item);
-            item.setAttribute('checked', 'checked');
+            item.setAttribute('checked', 'true');
           });
 
           console.log(allConsentItems);
