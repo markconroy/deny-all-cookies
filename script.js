@@ -60,23 +60,21 @@ if (document.querySelector('#onetrust-pc-btn-handler')) {
   const observer = new MutationObserver((mutationsList, observer) => {
     for(let mutation of mutationsList) {
       if (mutation.type === 'childList') {
+
         // OneTrust
         if (document.querySelector('.ot-pc-refuse-all-handler')) {
           confirmButton = document.querySelector('.ot-pc-refuse-all-handler');
-        }
-        if (document.querySelector('.save-preference-btn-handler')) {
-          savePreferencesButton = document.querySelector('.save-preference-btn-handler');
-        }
-        if (confirmButton) {
-          // If the confirm button is found, the observer disconnects
           confirmButton.click();
           observer.disconnect();
-        } else if (savePreferencesButton) {
+        } else if (document.querySelector('.save-preference-btn-handler')) {
+          const savePreferencesButton = document.querySelector('.save-preference-btn-handler');
           const preferenceItems = document.querySelectorAll('.category-switch-handler');
           preferenceItems.forEach(item => {
-            allConsentItems.push(item);
+            if (item.hasAttribute('checked')) {
+              // For anything that is checked, we want to uncheck it
+              item.click();
+            }
           });
-          removeAllCheckedItems();
           savePreferencesButton.click();
           observer.disconnect();
         }
