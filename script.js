@@ -1,6 +1,10 @@
-let confirmButton;
-let dialogOpener;
+// let confirmButton;
+// let savePreferencesButton;
+// let dialogOpener;
 
+// Not sure of this provider, it's the one with all the "Legitimate Interest"
+// checkboxes pre-checked:
+// e.g. https://www.apronus.com/music/onlineguitar.htm
 const allConsentItems = [];
 const legitimateInterestItems = document.querySelectorAll('.fc-preference-legitimate-interest');
 const consentItems = document.querySelectorAll('.fc-preference-consent');
@@ -17,62 +21,63 @@ if (consentItems) {
   });
 }
 
-function removeAllCheckedItems() {
+if (allConsentItems.length > 0) {
   allConsentItems.forEach(item => {
     if (item.hasAttribute('checked')) {
+      // For anything that is checked, we want to uncheck it
       item.click();
     }
   });
-}
-
-removeAllCheckedItems();
-
-if (document.querySelector('.fc-confirm-choices')) {
-  confirmButton = document.querySelector('.fc-confirm-choices');
+  if (document.querySelector('.fc-confirm-choices')) {
+    const confirmButton = document.querySelector('.fc-confirm-choices');
+    confirmButton.click();
+  }
 }
 
 // Cookiebot
 // Decline all button is present
 if (document.querySelector('#CybotCookiebotDialogBodyButtonDecline')) {
-  confirmButton = document.querySelector('#CybotCookiebotDialogBodyButtonDecline');
+  const confirmButton = document.querySelector('#CybotCookiebotDialogBodyButtonDecline');
+  confirmButton.click();
 }
 
 // OneTrust
 // Decline all button is present
 if (document.querySelector('#onetrust-reject-all-handler')) {
-  confirmButton = document.querySelector('#onetrust-reject-all-handler');
+  const confirmButton = document.querySelector('#onetrust-reject-all-handler');
+  confirmButton.click();
 }
 if (document.querySelector('.ot-pc-refuse-all-handler')) {
-  confirmButton = document.querySelector('.ot-pc-refuse-all-handler');
+  const confirmButton = document.querySelector('.ot-pc-refuse-all-handler');
+  confirmButton.click();
 }
 
+// OneTrust if there is no decline all button, but is a 'Manage' button.
 if (document.querySelector('#onetrust-pc-btn-handler')) {
-  dialogOpener = document.querySelector('#onetrust-pc-btn-handler');
-}
-
-if (!confirmButton) {
+  const dialogOpener = document.querySelector('#onetrust-pc-btn-handler');
   dialogOpener.click();
-  // Add a second check here for the submit button
-  // Redeclare the submitButton variable
-  // Call the submitButton.click() method
-
   // use a mutation observer to check for the submit button
   const observer = new MutationObserver((mutationsList, observer) => {
     for(let mutation of mutationsList) {
       if (mutation.type === 'childList') {
-        confirmButton = document.querySelector('.ot-pc-refuse-all-handler');
-        const saveButton = document.querySelector('.save-preference-btn-handler');
+        // OneTrust
+        if (document.querySelector('.ot-pc-refuse-all-handler')) {
+          confirmButton = document.querySelector('.ot-pc-refuse-all-handler');
+        }
+        if (document.querySelector('.save-preference-btn-handler')) {
+          savePreferencesButton = document.querySelector('.save-preference-btn-handler');
+        }
         if (confirmButton) {
           // If the confirm button is found, the observer disconnects
           confirmButton.click();
           observer.disconnect();
-        } else if (saveButton) {
+        } else if (savePreferencesButton) {
           const preferenceItems = document.querySelectorAll('.category-switch-handler');
           preferenceItems.forEach(item => {
             allConsentItems.push(item);
           });
           removeAllCheckedItems();
-          saveButton.click();
+          savePreferencesButton.click();
           observer.disconnect();
         }
       }
@@ -81,5 +86,3 @@ if (!confirmButton) {
 
   observer.observe(document.body, { childList: true, subtree: true });
 }
-
-confirmButton.click();
