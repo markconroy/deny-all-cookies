@@ -75,9 +75,8 @@ if (!confirmButton) {
 
           setTimeout(() => {
             removeAllCheckedItems();
+            saveButton.remove();
           }, 1000);
-
-          saveButton.remove();
           console.log(saveButton);
           observer.disconnect();
         }
