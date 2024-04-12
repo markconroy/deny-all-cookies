@@ -69,8 +69,10 @@ if (!confirmButton) {
         } else if (saveButton) {
           const preferenceItems = document.querySelectorAll('.category-switch-handler');
           preferenceItems.forEach(item => {
+            console.log('before', item);
             allConsentItems.push(item);
             item.click();
+            console.log('after', item);
           });
 
           console.log(allConsentItems);
