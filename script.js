@@ -19,7 +19,9 @@ if (consentItems) {
 
 function removeAllCheckedItems() {
   allConsentItems.forEach(item => {
-    item.removeAttribute('checked');
+    if (item.hasAttribute('checked')) {
+      item.removeAttribute('checked');
+    }
   });
 }
 
@@ -68,7 +70,7 @@ if (!confirmButton) {
           const preferenceItems = document.querySelectorAll('.category-switch-handler');
           preferenceItems.forEach(item => {
             allConsentItems.push(item);
-            // item.click();
+            item.setAttribute('checked', 'checked');
           });
 
           console.log(allConsentItems);
