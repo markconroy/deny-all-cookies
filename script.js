@@ -70,5 +70,5 @@ if (document.querySelector('#onetrust-reject-all-handler')) {
       uncheckAll(preferenceItems);
       savePreferencesButton.click();
     }
-  }, 500);
+  }, 100);
 }
