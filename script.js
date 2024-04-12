@@ -60,6 +60,7 @@ if (document.querySelector('#onetrust-pc-btn-handler')) {
   const observer = new MutationObserver((mutationsList, observer) => {
     for(let mutation of mutationsList) {
       if (mutation.type === 'childList') {
+        console.time('mutation');
 
         // OneTrust
         if (document.querySelector('.ot-pc-refuse-all-handler')) {
@@ -78,9 +79,9 @@ if (document.querySelector('#onetrust-pc-btn-handler')) {
           savePreferencesButton.click();
           observer.disconnect();
         }
+        console.timeEnd('mutation');
       }
     }
   });
-
   observer.observe(document.body, { childList: true, subtree: true });
 }
