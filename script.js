@@ -60,10 +60,15 @@ if (document.querySelector('#onetrust-reject-all-handler')) {
   const dialogOpener = document.querySelector('#onetrust-pc-btn-handler');
   dialogOpener.click();
 
-  if (document.querySelector('.save-preference-btn-handler')) {
-    const savePreferencesButton = document.querySelector('.save-preference-btn-handler');
-    const preferenceItems = document.querySelectorAll('.category-switch-handler');
-    uncheckAll(preferenceItems);
-    savePreferencesButton.click();
-  }
+  // Usually, this section is fine, but sometimes it's set to not load until
+  // after the dialogOpener is clicked. In that case, we'll need to re-run this
+  // code after a timeout.
+  setTimeout(() => {
+    if (document.querySelector('.save-preference-btn-handler')) {
+      const savePreferencesButton = document.querySelector('.save-preference-btn-handler');
+      const preferenceItems = document.querySelectorAll('.category-switch-handler');
+      uncheckAll(preferenceItems);
+      savePreferencesButton.click();
+    }
+  }, 500);
 }
