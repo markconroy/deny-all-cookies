@@ -20,7 +20,7 @@ if (consentItems) {
 function removeAllCheckedItems() {
   allConsentItems.forEach(item => {
     if (item.hasAttribute('checked')) {
-      item.removeAttribute('checked');
+      item.click();
     }
   });
 }
@@ -70,7 +70,7 @@ if (!confirmButton) {
           const preferenceItems = document.querySelectorAll('.category-switch-handler');
           preferenceItems.forEach(item => {
             allConsentItems.push(item);
-            item.setAttribute('checked', 'true');
+            item.click();
           });
 
           console.log(allConsentItems);
