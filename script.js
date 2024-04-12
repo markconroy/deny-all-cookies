@@ -64,7 +64,7 @@ if (document.querySelector('#onetrust-reject-all-handler')) {
     if (document.querySelector('.ot-pc-refuse-all-handler')) {
       const confirmButton = document.querySelector('.ot-pc-refuse-all-handler');
       confirmButton.click();
-    } else if (document.querySelector('.save-preference-btn-handler')) {
+    } else {
       const savePreferencesButton = document.querySelector('.save-preference-btn-handler');
       const preferenceItems = document.querySelectorAll('.category-switch-handler');
       uncheckAll(preferenceItems);
