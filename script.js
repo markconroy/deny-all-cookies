@@ -69,19 +69,10 @@ if (!confirmButton) {
         } else if (saveButton) {
           const preferenceItems = document.querySelectorAll('.category-switch-handler');
           preferenceItems.forEach(item => {
-            console.log('before', item);
             allConsentItems.push(item);
-            item.click();
-            console.log('after', item);
           });
-
-          console.log(allConsentItems);
-
-          setTimeout(() => {
-            removeAllCheckedItems();
-            saveButton.remove();
-          }, 1000);
-          console.log(saveButton);
+          removeAllCheckedItems();
+          confirmButton = saveButton;
           observer.disconnect();
         }
       }
@@ -90,11 +81,5 @@ if (!confirmButton) {
 
   observer.observe(document.body, { childList: true, subtree: true });
 }
-
-// function handleOneTrust() {
-// 	const submitButton = document.querySelector('.ot-pc-refuse-all-handler');
-//   console.log(submitButton);
-// 	submitButton.click();
-// }
 
 confirmButton.click();
