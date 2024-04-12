@@ -54,13 +54,13 @@ if (document.querySelector('.ot-pc-refuse-all-handler')) {
 
 // OneTrust if there is no decline all button, but is a 'Manage' button.
 if (document.querySelector('#onetrust-pc-btn-handler')) {
+  console.time('onetrust');
   const dialogOpener = document.querySelector('#onetrust-pc-btn-handler');
   dialogOpener.click();
   // use a mutation observer to check for the submit button
   const observer = new MutationObserver((mutationsList, observer) => {
     for(let mutation of mutationsList) {
       if (mutation.type === 'childList') {
-        console.time('mutation');
 
         // OneTrust
         if (document.querySelector('.ot-pc-refuse-all-handler')) {
@@ -79,9 +79,9 @@ if (document.querySelector('#onetrust-pc-btn-handler')) {
           savePreferencesButton.click();
           observer.disconnect();
         }
-        console.timeEnd('mutation');
       }
     }
   });
   observer.observe(document.body, { childList: true, subtree: true });
+  console.timeEnd('onetrust');
 }
