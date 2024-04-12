@@ -63,8 +63,8 @@ if (!confirmButton) {
         confirmButton = document.querySelector('.ot-pc-refuse-all-handler');
         const saveButton = document.querySelector('.save-preference-btn-handler');
         if (confirmButton) {
-          // The confirm button gets clicked at the end of this script.
           // If the confirm button is found, the observer disconnects
+          confirmButton.click();
           observer.disconnect();
         } else if (saveButton) {
           const preferenceItems = document.querySelectorAll('.category-switch-handler');
@@ -72,7 +72,7 @@ if (!confirmButton) {
             allConsentItems.push(item);
           });
           removeAllCheckedItems();
-          confirmButton = saveButton;
+          saveButton.click();
           observer.disconnect();
         }
       }
