@@ -1,6 +1,10 @@
-// let confirmButton;
-// let savePreferencesButton;
-// let dialogOpener;
+function uncheckedAll(items) {
+  items.forEach(item => {
+    if (item.hasAttribute('checked')) {
+      item.click();
+    }
+  });
+}
 
 // Not sure of this provider, it's the one with all the "Legitimate Interest"
 // checkboxes pre-checked:
@@ -22,12 +26,7 @@ if (consentItems) {
 }
 
 if (allConsentItems.length > 0) {
-  allConsentItems.forEach(item => {
-    if (item.hasAttribute('checked')) {
-      // For anything that is checked, we want to uncheck it
-      item.click();
-    }
-  });
+  uncheckedAll(allConsentItems);
   if (document.querySelector('.fc-confirm-choices')) {
     const confirmButton = document.querySelector('.fc-confirm-choices');
     confirmButton.click();
@@ -39,6 +38,16 @@ if (allConsentItems.length > 0) {
 if (document.querySelector('#CybotCookiebotDialogBodyButtonDecline')) {
   const confirmButton = document.querySelector('#CybotCookiebotDialogBodyButtonDecline');
   confirmButton.click();
+} else if (document.querySelector('#CybotCookiebotDialogBodyLevelButtonCustomize')) {
+  // Cookiebot if there is no decline all button, but is a 'Customize' button.
+  const dialogOpener = document.querySelector('#CybotCookiebotDialogBodyLevelButtonCustomize');
+  dialogOpener.click();
+  if (document.querySelector('#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection')) {
+    const savePreferencesButton = document.querySelector('#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection');
+    const preferenceItems = document.querySelectorAll('.CybotCookiebotDialogBodyLevelConsentCheckbox');
+    uncheckAll(preferenceItems);
+    savePreferencesButton.click();
+  }
 }
 
 // OneTrust
@@ -46,26 +55,18 @@ if (document.querySelector('#CybotCookiebotDialogBodyButtonDecline')) {
 if (document.querySelector('#onetrust-reject-all-handler')) {
   const confirmButton = document.querySelector('#onetrust-reject-all-handler');
   confirmButton.click();
-}
-if (document.querySelector('.ot-pc-refuse-all-handler')) {
+} else if (document.querySelector('.ot-pc-refuse-all-handler')) {
   const confirmButton = document.querySelector('.ot-pc-refuse-all-handler');
   confirmButton.click();
-}
-
-// OneTrust if there is no decline all button, but is a 'Manage' button.
-if (document.querySelector('#onetrust-pc-btn-handler')) {
+} else if (document.querySelector('#onetrust-pc-btn-handler')) {
+  // OneTrust if there is no decline all button, but is a 'Manage' button.
   const dialogOpener = document.querySelector('#onetrust-pc-btn-handler');
   dialogOpener.click();
 
   if (document.querySelector('.save-preference-btn-handler')) {
     const savePreferencesButton = document.querySelector('.save-preference-btn-handler');
     const preferenceItems = document.querySelectorAll('.category-switch-handler');
-    preferenceItems.forEach(item => {
-      if (item.hasAttribute('checked')) {
-        // For anything that is checked, we want to uncheck it
-        item.click();
-      }
-    });
+    uncheckAll(preferenceItems);
     savePreferencesButton.click();
   }
 }
