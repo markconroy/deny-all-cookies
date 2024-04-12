@@ -56,29 +56,16 @@ if (document.querySelector('.ot-pc-refuse-all-handler')) {
 if (document.querySelector('#onetrust-pc-btn-handler')) {
   const dialogOpener = document.querySelector('#onetrust-pc-btn-handler');
   dialogOpener.click();
-  // use a mutation observer to check for the submit button
-  const observer = new MutationObserver((mutationsList, observer) => {
-    for(let mutation of mutationsList) {
-      if (mutation.type === 'childList') {
-        // OneTrust
-        if (document.querySelector('.ot-pc-refuse-all-handler')) {
-          confirmButton = document.querySelector('.ot-pc-refuse-all-handler');
-          confirmButton.click();
-          observer.disconnect();
-        } else if (document.querySelector('.save-preference-btn-handler')) {
-          const savePreferencesButton = document.querySelector('.save-preference-btn-handler');
-          const preferenceItems = document.querySelectorAll('.category-switch-handler');
-          preferenceItems.forEach(item => {
-            if (item.hasAttribute('checked')) {
-              // For anything that is checked, we want to uncheck it
-              item.click();
-            }
-          });
-          savePreferencesButton.click();
-          observer.disconnect();
-        }
+
+  if (document.querySelector('.save-preference-btn-handler')) {
+    const savePreferencesButton = document.querySelector('.save-preference-btn-handler');
+    const preferenceItems = document.querySelectorAll('.category-switch-handler');
+    preferenceItems.forEach(item => {
+      if (item.hasAttribute('checked')) {
+        // For anything that is checked, we want to uncheck it
+        item.click();
       }
-    }
-  });
-  observer.observe(document.body, { childList: true, subtree: true });
+    });
+    savePreferencesButton.click();
+  }
 }
