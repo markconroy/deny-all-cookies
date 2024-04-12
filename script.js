@@ -59,6 +59,7 @@ if (document.querySelector('#onetrust-pc-btn-handler')) {
   dialogOpener.click();
   // use a mutation observer to check for the submit button
   const observer = new MutationObserver((mutationsList, observer) => {
+    console.time('mutation');
     for(let mutation of mutationsList) {
       if (mutation.type === 'childList') {
 
@@ -81,7 +82,7 @@ if (document.querySelector('#onetrust-pc-btn-handler')) {
         }
       }
     }
+    console.timeEnd('mutation');
   });
   observer.observe(document.body, { childList: true, subtree: true });
-  console.timeEnd('onetrust');
 }
