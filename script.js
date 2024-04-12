@@ -1,4 +1,4 @@
-function uncheckedAll(items) {
+function uncheckAll(items) {
   items.forEach(item => {
     if (item.hasAttribute('checked')) {
       item.click();
@@ -26,7 +26,7 @@ if (consentItems) {
 }
 
 if (allConsentItems.length > 0) {
-  uncheckedAll(allConsentItems);
+  uncheckAll(allConsentItems);
   if (document.querySelector('.fc-confirm-choices')) {
     const confirmButton = document.querySelector('.fc-confirm-choices');
     confirmButton.click();
