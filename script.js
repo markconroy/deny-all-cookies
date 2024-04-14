@@ -72,3 +72,9 @@ if (document.querySelector('#onetrust-reject-all-handler')) {
     }
   }, 100);
 }
+
+// Osana
+if (document.querySelector('.osano-cm-denyAll')) {
+  const confirmButton = document.querySelector('.osano-cm-denyAll');
+  confirmButton.click();
+}
