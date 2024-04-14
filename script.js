@@ -72,3 +72,10 @@ if (document.querySelector('#onetrust-reject-all-handler')) {
     }
   }, 100);
 }
+
+// Twitter
+// The last button is the "Refuse all" button
+const twitterCookieBar = document.querySelector('[data-testid="BottomBar"]');
+const twitterButtons = Array.from(twitterCookieBar.querySelectorAll('[role="button"]'));
+const twitterRefuseButton = twitterButtons.pop();
+twitterRefuseButton.click();
