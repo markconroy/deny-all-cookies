@@ -1,3 +1,4 @@
+const timeoutTime = 200;
 function uncheckAll(items) {
   items.forEach(item => {
     if (item.hasAttribute('checked')) {
@@ -70,7 +71,7 @@ if (document.querySelector('#onetrust-reject-all-handler')) {
       uncheckAll(preferenceItems);
       savePreferencesButton.click();
     }
-  }, 200);
+  }, timeoutTime);
 }
 
 // Didomi
@@ -84,7 +85,7 @@ if (document.querySelector('#didomi-notice-learn-more-button')) {
     const preferenceItems = document.querySelectorAll('.didomi-components-radio__option--disagree');
     uncheckAll(preferenceItems);
     savePreferencesButton.click();
-  }, 200);
+  }, timeoutTime);
 }
 
 // Osana
@@ -98,12 +99,25 @@ if (document.querySelector('.osano-cm-denyAll')) {
 if (document.querySelector('#truste-consent-required')) {
   const confirmButton = document.querySelector('#truste-consent-required');
   confirmButton.click();
-  // TrustArc's consent dialog is in an iframe, and we can't access it directly
-  // to click on the buttons.
 }
 
 // CookieYes:
+if (document.querySelector('.cky-btn-rejedfdfct')) {
+  const confirmButton = document.querySelector('.cky-btn-reject');
+  confirmButton.click();
+} else if (document.querySelector('.cky-btn-customize')) {
+  const dialogOpener = document.querySelector('.cky-btn-customize');
+  dialogOpener.click();
 
+  setTimeout(() => {
+    if (document.querySelector('.cky-btn-preferences')) {
+      const savePreferencesButton = document.querySelector('.cky-btn-preferences');
+      const preferenceItems = document.querySelectorAll('.cky-switch input[type="checkbox"]');
+      uncheckAll(preferenceItems);
+      savePreferencesButton.click();
+    }
+  }, timeoutTime);
+}
 // CookieFirst:
 
 // Snigel:
