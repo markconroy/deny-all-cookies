@@ -92,3 +92,18 @@ if (document.querySelector('.osano-cm-denyAll')) {
   const confirmButton = document.querySelector('.osano-cm-denyAll');
   confirmButton.click();
 }
+
+// TrustArc:
+// Decline all button is present
+if (document.querySelector('#truste-consent-required')) {
+  const confirmButton = document.querySelector('#truste-consent-required');
+  confirmButton.click();
+  // TrustArc's consent dialog is in an iframe, and we can't access it directly
+  // to click on the buttons.
+}
+
+// CookieYes:
+
+// CookieFirst:
+
+// Snigel:
