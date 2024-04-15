@@ -70,7 +70,21 @@ if (document.querySelector('#onetrust-reject-all-handler')) {
       uncheckAll(preferenceItems);
       savePreferencesButton.click();
     }
-  }, 100);
+  }, 200);
+}
+
+// Didomi
+// Decline all button is present
+if (document.querySelector('#didomi-notice-learn-more-button')) {
+  // Didomi if there is no decline all button, but is a 'Learn more' button.
+  const dialogOpener = document.querySelector('#didomi-notice-learn-more-button');
+  dialogOpener.click();
+  setTimeout(() => {
+    const savePreferencesButton = document.querySelector('.didomi-consent-popup-actions .didomi-components-button');
+    const preferenceItems = document.querySelectorAll('.didomi-components-radio__option--disagree');
+    uncheckAll(preferenceItems);
+    savePreferencesButton.click();
+  }, 200);
 }
 
 // Osana
