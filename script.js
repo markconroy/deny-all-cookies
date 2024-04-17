@@ -200,6 +200,12 @@ if (document.querySelector('[jsmodel')) {
   confirmButton.click();
 }
 
+// YouTube:
+if (document.querySelector('.eom-buttons')) {
+  const confirmButton = document.querySelector('.eom-buttons button');
+  confirmButton.click();
+}
+
 // Evidon:
 // Test site 1: https://www.evidon.com (redirects to https://www.crownpeak.com)
 // Test site 2: https://store.canon.ie
