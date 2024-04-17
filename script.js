@@ -190,6 +190,13 @@ if (document.querySelector('[data-cookiefirst-action="reject"]')) {
   }, timeoutTime);
 }
 
+// Google:
+// Test site 1: https://www.google.com
+if (document.querySelector('[jsmodel')) {
+  const confirmButton = document.querySelector('[data-ved="0ahUKEwiS16avjMqFAxXuUkEAHd9JDxsQ4cIICHs"]');
+  confirmButton.click();
+}
+
 // Evidon:
 // Test site 1: https://www.evidon.com (redirects to https://www.crownpeak.com)
 // Test site 2: https://store.canon.ie
