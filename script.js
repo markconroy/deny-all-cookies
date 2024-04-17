@@ -193,7 +193,10 @@ if (document.querySelector('[data-cookiefirst-action="reject"]')) {
 // Google:
 // Test site 1: https://www.google.com
 if (document.querySelector('[jsmodel')) {
-  const confirmButton = document.querySelector('[data-ved="0ahUKEwiS16avjMqFAxXuUkEAHd9JDxsQ4cIICHs"]');
+  // This is very scrappy, hoping the 3rd last button in the modal is the
+  // 'Reject all' button.
+  const buttons = document.querySelectorAll('[jsmodel] button');
+  confirmButton = buttons[buttons.length - 3];
   confirmButton.click();
 }
 
