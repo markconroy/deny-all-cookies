@@ -142,8 +142,6 @@ if (document.querySelector('#cn-refuse-cookie')) {
   }, timeoutTime);
 }
 
-// CookieFirst:
-
 // Snigel:
 // Test site 1: https://www.ultimate-guitar.com/
 if (document.querySelector('.qc-cmp2-summary-buttons [mode="secondary"]')) {
@@ -160,5 +158,29 @@ if (document.querySelector('.qc-cmp2-summary-buttons [mode="secondary"]')) {
     const objectToAllButton = document.querySelector('.qc-cmp2-header-links button');
     objectToAllButton.click();
     savePreferencesButton.click();
+  }, timeoutTime);
+}
+
+// CookieFirst:
+// Test site 1: https://cookiefirst.com
+// Test site 2: https://www.smeg.com/
+if (document.querySelector('[data-cookiefirst-action="reject"]')) {
+  const confirmButton = document.querySelector('[data-cookiefirst-action="reject"]');
+  confirmButton.click();
+} else if (document.querySelector('[data-cookiefirst-action="adjust"]')) {
+  const dialogOpener = document.querySelector('[data-cookiefirst-action="adjust"]');
+  dialogOpener.click();
+  setTimeout(() => {
+    const rejectAllButton = document.querySelector('[data-cookiefirst-action="reject_second"]');
+    if (rejectAllButton) {
+      rejectAllButton.click();
+    } else {
+      const savePreferencesButton = document.querySelector('[data-cookiefirst-action="save"]');
+      const preferenceItems = Array.from(document.querySelectorAll('[data-cookiefirst-widget="modal"] button[role="checkbox"]'));
+      // Using shift() to remove the first item, which is the "necessary cookies" button.
+      preferenceItems.shift();
+      uncheckAll(preferenceItems);
+      savePreferencesButton.click();
+    }
   }, timeoutTime);
 }
