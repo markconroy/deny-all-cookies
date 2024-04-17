@@ -118,6 +118,14 @@ if (document.querySelector('.cky-btn-rejedfdfct')) {
     }
   }, timeoutTime);
 }
+
+// Hu-Manity.co:
+if (document.querySelector('#cn-refuse-cookie')) {
+  const confirmButton = document.querySelector('#cn-refuse-cookie');
+  console.log(confirmButton);
+  confirmButton.click();
+}
+
 // CookieFirst:
 
 // Snigel:
