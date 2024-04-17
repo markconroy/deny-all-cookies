@@ -127,7 +127,7 @@ if (document.querySelector('#cn-refuse-cookie')) {
   document.querySelector('#hu-cookies-notice-consent-choices-1-toggle').click();
   const confirmButton = document.querySelector('#hu-cookies-save');
   confirmButton.click();
-} elseif (document.querySelector('[data-hu-action="cookies-notice-toggle"]')) {
+} else if (document.querySelector('[data-hu-action="cookies-notice-toggle"]')) {
   const dialogOpener = document.querySelector('#hu-cookies-save');
   dialogOpener.click();
   setTimeout(() => {
