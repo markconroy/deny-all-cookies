@@ -35,6 +35,9 @@ if (allConsentItems.length > 0) {
 }
 
 // Cookiebot
+// Test site 1: https://www.cookiebot.com
+// Test site 2: https://www.pepcogroup.eu/
+// Test site 3: https://www.ruralking.com/ (not working yet)
 // Decline all button is present
 if (document.querySelector('#CybotCookiebotDialogBodyButtonDecline')) {
   const confirmButton = document.querySelector('#CybotCookiebotDialogBodyButtonDecline');
@@ -52,6 +55,8 @@ if (document.querySelector('#CybotCookiebotDialogBodyButtonDecline')) {
 }
 
 // OneTrust
+// Test site 1: https://stackoverflow.com
+// Test site 2: https://www.rte.ie
 // Decline all button is present
 if (document.querySelector('#onetrust-reject-all-handler')) {
   const confirmButton = document.querySelector('#onetrust-reject-all-handler');
@@ -184,3 +189,7 @@ if (document.querySelector('[data-cookiefirst-action="reject"]')) {
     }
   }, timeoutTime);
 }
+
+// Evidon:
+// Test site 1: https://www.evidon.com (redirects to https://www.crownpeak.com)
+// Test site 2: https://store.canon.ie
