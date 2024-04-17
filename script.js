@@ -120,6 +120,8 @@ if (document.querySelector('.cky-btn-rejedfdfct')) {
 }
 
 // Hu-Manity.co:
+// Test site 1: https://www.hu-manity.co/
+// Test site 2: https://momentumconsulting.ie/
 if (document.querySelector('#cn-refuse-cookie')) {
   const confirmButton = document.querySelector('#cn-refuse-cookie');
   confirmButton.click();
@@ -143,3 +145,20 @@ if (document.querySelector('#cn-refuse-cookie')) {
 // CookieFirst:
 
 // Snigel:
+// Test site 1: https://www.ultimate-guitar.com/
+if (document.querySelector('.qc-cmp2-summary-buttons [mode="secondary"]')) {
+  // This is a hard one to get a unique class for.
+  // I'm hoping that the [mode="secondary"] button is only present once, and
+  // that it's the one that opens the dialog.
+  const dialogOpener = document.querySelector('.qc-cmp2-summary-buttons [mode="secondary"]');
+  dialogOpener.click();
+  setTimeout(() => {
+    // Like above, it's hard to know if this class is unique or not.
+    // I'm hoping that the [mode="primary"] button is alwyas the save button, and
+    // that the objectToAll button is always the one that checks all the boxes.
+    const savePreferencesButton = document.querySelector('.qc-cmp2-footer [mode="primary"]');
+    const objectToAllButton = document.querySelector('.qc-cmp2-header-links button');
+    objectToAllButton.click();
+    savePreferencesButton.click();
+  }, timeoutTime);
+}
