@@ -122,8 +122,22 @@ if (document.querySelector('.cky-btn-rejedfdfct')) {
 // Hu-Manity.co:
 if (document.querySelector('#cn-refuse-cookie')) {
   const confirmButton = document.querySelector('#cn-refuse-cookie');
-  console.log(confirmButton);
   confirmButton.click();
+} else if (document.querySelector('#hu-cookies-notice-consent-choices-1-toggle')) {
+  document.querySelector('#hu-cookies-notice-consent-choices-1-toggle').click();
+  const confirmButton = document.querySelector('#hu-cookies-save');
+  confirmButton.click();
+} elseif (document.querySelector('[data-hu-action="cookies-notice-toggle"]')) {
+  const dialogOpener = document.querySelector('#hu-cookies-save');
+  dialogOpener.click();
+  setTimeout(() => {
+    if (document.querySelector('#hu-cookies-preferences-categories')) {
+      const preferenceItems = document.querySelectorAll('#hu-cookies-preferences-categories input[type="checkbox"]');
+      uncheckAll(preferenceItems);
+      const savePreferencesButton = document.querySelector('#hu-cookies-save');
+      savePreferencesButton.click();
+    }
+  }, timeoutTime);
 }
 
 // CookieFirst:
