@@ -202,6 +202,16 @@ if (document.querySelector('.orejime-Button--decline')) {
   const confirmButton = document.querySelector('.orejime-Button--save');
   disableAllButton.click();
   confirmButton.click();
+} else if (document.querySelector('.orejime-Notice-learnMoreButton')) {
+  const dialogOpener = document.querySelector('.orejime-Notice-learnMoreButton');
+  dialogOpener.click();
+  setTimeout(() => {
+    const disableAllButton = document.querySelector('.orejime-AppToggles-disableAll');
+  const confirmButton = document.querySelector('.orejime-Button--save');
+  disableAllButton.click();
+  confirmButton.click();
+  }, timeoutTime);
+
 }
 
 // Google:
