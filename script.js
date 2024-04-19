@@ -38,6 +38,7 @@ if (allConsentItems.length > 0) {
 // Test site 1: https://www.cookiebot.com
 // Test site 2: https://www.pepcogroup.eu/
 // Test site 3: https://www.ruralking.com/ (not working yet)
+// @todo fix site 3, where old cookiebot dialog is present at page load time
 // Decline all button is present
 if (document.querySelector('#CybotCookiebotDialogBodyButtonDecline')) {
   const confirmButton = document.querySelector('#CybotCookiebotDialogBodyButtonDecline');
@@ -192,6 +193,7 @@ if (document.querySelector('[data-cookiefirst-action="reject"]')) {
 
 // Google:
 // Test site 1: https://www.google.com
+// @todo - works for google.com but not https://www.google.com/search?q=cookies
 if (document.querySelector('[jsmodel')) {
   // This is very scrappy, hoping the 3rd last button in the modal is the
   // 'Reject all' button.
@@ -203,6 +205,15 @@ if (document.querySelector('[jsmodel')) {
 // YouTube:
 if (document.querySelector('.eom-buttons')) {
   const confirmButton = document.querySelector('.eom-buttons button');
+  confirmButton.click();
+}
+
+// Aftershox:
+// Not sure what provider this is, might be custom, but let's add it in just in
+// case it's not.
+// Test site 1: https://www.shokz.com/
+if (document.querySelector('.cc-deny')) {
+  const confirmButton = document.querySelector('.cc-deny');
   confirmButton.click();
 }
 
