@@ -197,7 +197,7 @@ if (document.querySelector('[data-cookiefirst-action="reject"]')) {
 if (document.querySelector('.orejime-AppToggles-disableAll')) {
   const confirmButton = document.querySelector('.orejime-AppToggles-disableAll');
   confirmButton.click();
-} else if (document.querySelector('.orejime-Button--decline') {
+} else if (document.querySelector('.orejime-Button--decline')) {
     const confirmButton = document.querySelector('.orejime-Button--decline');
     confirmButton.click();
 }
