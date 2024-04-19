@@ -191,6 +191,17 @@ if (document.querySelector('[data-cookiefirst-action="reject"]')) {
   }, timeoutTime);
 }
 
+// Orejime:
+// Test site 1: https://orejime.empreintedigitale.fr/
+// Test site 2: https://lcrfm.ie/
+if (document.querySelector('.orejime-AppToggles-disableAll')) {
+  const confirmButton = document.querySelector('.orejime-AppToggles-disableAll');
+  confirmButton.click();
+} else if (document.querySelector('.orejime-Button--decline') {
+    const confirmButton = document.querySelector('.orejime-Button--decline');
+    confirmButton.click();
+}
+
 // Google:
 // Test site 1: https://www.google.com
 // @todo - works for google.com but not https://www.google.com/search?q=cookies
