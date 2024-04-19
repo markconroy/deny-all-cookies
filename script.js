@@ -194,12 +194,14 @@ if (document.querySelector('[data-cookiefirst-action="reject"]')) {
 // Orejime:
 // Test site 1: https://orejime.empreintedigitale.fr/
 // Test site 2: https://lcrfm.ie/
-if (document.querySelector('.orejime-AppToggles-disableAll')) {
-  const confirmButton = document.querySelector('.orejime-AppToggles-disableAll');
-  confirmButton.click();
-} else if (document.querySelector('.orejime-Button--decline')) {
+if (document.querySelector('.orejime-Button--decline')) {
     const confirmButton = document.querySelector('.orejime-Button--decline');
     confirmButton.click();
+} else if (document.querySelector('.orejime-AppToggles-disableAll')) {
+  const disableAllButton = document.querySelector('.orejime-AppToggles-disableAll');
+  const confirmButton = document.querySelector('.orejime-Button--save');
+  disableAllButton.click();
+  confirmButton.click();
 }
 
 // Google:
