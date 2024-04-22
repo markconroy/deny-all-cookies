@@ -239,12 +239,6 @@ if (document.querySelector('.cc-deny')) {
   confirmButton.click();
 }
 
-// Ryanair:
-if (document.querySelector('[data-ref="cookie.no-thanks]')) {
-  const confirmButton = document.querySelector('[data-ref="cookie.no-thanks]');
-  confirmButton.click();
-}
-
 // Evidon:
 // Test site 1: https://www.evidon.com (redirects to https://www.crownpeak.com)
 // Test site 2: https://store.canon.ie
