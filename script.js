@@ -211,7 +211,6 @@ if (document.querySelector('.orejime-Button--decline')) {
     disableAllButton.click();
     confirmButton.click();
   }, timeoutTime);
-
 }
 
 // Google:
@@ -237,6 +236,12 @@ if (document.querySelector('.eom-buttons')) {
 // Test site 1: https://www.shokz.com/
 if (document.querySelector('.cc-deny')) {
   const confirmButton = document.querySelector('.cc-deny');
+  confirmButton.click();
+}
+
+// Ryanair:
+if (document.querySelector('[data-ref="cookie.no-thanks]')) {
+  const confirmButton = document.querySelector('[data-ref="cookie.no-thanks]');
   confirmButton.click();
 }
 
