@@ -242,3 +242,29 @@ if (document.querySelector('.cc-deny')) {
 // Evidon:
 // Test site 1: https://www.evidon.com (redirects to https://www.crownpeak.com)
 // Test site 2: https://store.canon.ie
+if (document.querySelector('#_evidon-decline-button')) {
+  const confirmButton = document.querySelector('#_evidon-decline-button');
+  confirmButton.click();
+}
+
+// Iubenda:
+// Test site 1: https://www.iubenda.com
+// Test site 2: https://raidboxes.io
+if (document.querySelector('.iubenda-cs-reject-btn')) {
+  const confirmButton = document.querySelector('.iubenda-cs-reject-btn');
+  confirmButton.click();
+} else if (document.querySelector('.iubenda-cs-customize-btn')) {
+  const dialogOpener = document.querySelector('.iubenda-cs-customize-btn');
+  dialogOpener.click();
+  setTimeout(() => {
+    if (document.querySelector('.iub-btn-reject')) {
+      const confirmButton = document.querySelector('.iub-btn-reject');
+      confirmButton.click();
+    } else {
+      const preferenceItems = document.querySelectorAll('.iub-toggle-checkbox input[type="checkbox"]:not(:disabled)');
+      uncheckAll(preferenceItems);
+    }
+    const savePreferencesButton = document.querySelector('#iubFooterBtn');
+    savePreferencesButton.click();
+  }, timeoutTime);
+}
