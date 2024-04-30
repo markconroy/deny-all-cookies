@@ -58,8 +58,8 @@ if (document.querySelector('#CybotCookiebotDialogBodyButtonDecline')) {
 // Usercentrics
 // Test site 1: https://www.usercentrics.com
 // Test site 2: https://londonspeakerbureau.com
-if (document.querySelector('.uc-deny-all-button')) {
-  const confirmButton = document.querySelector('.uc-deny-all-button');
+if (document.querySelector('.uc-deny-all-button') || document.querySelector('.uc-deny-button')) {
+  const confirmButton = document.querySelector('.uc-deny-all-button') || document.querySelector('.uc-deny-button');
   confirmButton.click();
 }
 
