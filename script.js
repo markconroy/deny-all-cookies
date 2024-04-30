@@ -55,6 +55,14 @@ if (document.querySelector('#CybotCookiebotDialogBodyButtonDecline')) {
   }
 }
 
+// Usercentrics
+// Test site 1: https://www.usercentrics.com
+// Test site 2: https://londonspeakerbureau.com
+if (document.querySelector('.uc-deny-all-button')) {
+  const confirmButton = document.querySelector('.uc-deny-all-button');
+  confirmButton.click();
+}
+
 // OneTrust
 // Test site 1: https://stackoverflow.com
 // Test site 2: https://www.rte.ie
