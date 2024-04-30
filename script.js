@@ -283,14 +283,19 @@ if (document.querySelector('.iubenda-cs-reject-btn')) {
   }, timeoutTime);
 }
 
-// cmpbox - not sure what this one is, found on https://bosch-home.ie
+// Items I am not sure of the provider
+// Found on https://bosch-home.ie
 if (document.querySelector('.cmptxt_btn_no')) {
   const confirmButton = document.querySelector('.cmptxt_btn_no');
   confirmButton.click();
 }
-
-// Tommy Hilfiger, again, not sure what provider this is
+// Found on https://tommy.com
 if (document.querySelector('[data-testid="reject-cookies-pvh-button"]')) {
   const confirmButton = document.querySelector('[data-testid="reject-cookies-pvh-button"]');
+  confirmButton.click();
+}
+// Found on https://www.commerzbank.de
+if (document.querySelector('#denyAll')) {
+  const confirmButton = document.querySelector('#denyAll');
   confirmButton.click();
 }
