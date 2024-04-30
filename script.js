@@ -58,9 +58,15 @@ if (document.querySelector('#CybotCookiebotDialogBodyButtonDecline')) {
 // Usercentrics
 // Test site 1: https://www.usercentrics.com
 // Test site 2: https://londonspeakerbureau.com
-if (document.querySelector('.uc-deny-all-button') || document.querySelector('.uc-deny-button')) {
+if (document.querySelector('[data-testid="uc-deny-all-button"]') || document.querySelector('.uc-deny-button')) {
   const confirmButton = document.querySelector('.uc-deny-all-button') || document.querySelector('.uc-deny-button');
   confirmButton.click();
+} else if (document.querySelector('#usercentrics-root')) {
+  const cookieDialog = document.querySelector('#usercentrics-root');
+  if (cookieDialog.shadowRoot.querySelector('[data-testid="uc-deny-all-button"]')) {
+    const confirmButton = cookieDialog.shadowRoot.querySelector('[data-testid="uc-deny-all-button"]');
+    confirmButton.click();
+  }
 }
 
 // OneTrust
