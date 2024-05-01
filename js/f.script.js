@@ -15,72 +15,90 @@ const randomNumber = Math.floor(Math.random() * 4) + 1;
 
 function handleFreeScript() {
   if (randomNumber === 1) {
-    console.log('we are going to show the dialog');
     const dialogElement = document.createElement("dialog");
     dialogElement.setAttribute("id", "deny-all-cookies-dialog");
     dialogElement.innerHTML = `
       <style>
         #deny-all-cookies-dialog {
+          --dac-color-primary: #003bc6;
+          --dac-color-secondary: #c33f38;
+          --dac-color-light: #ffffff;
+          --dac-color-dark: #000000;
+          --dac-size: 1rem;
+          --dac-border-radius: 10px;
+
+          box-sizing: border-box;
           max-width: 90%;
-          background-color: #c33f38;
-          border-radius: 10px;
-          border-color: #ffffff;
+          background-color: var(--dac-color-secondary);
+          border-radius: var(--dac-border-radius);
+          border-color: var(--dac-color-light);
         }
         #deny-all-cookies-dialog::backdrop {
           background-color: rgba(0, 0, 0, 0.85);
         }
-        .dialog {
+        #deny-all-cookies-dialog *,
+        #deny-all-cookies-dialog *::before,
+        #deny-all-cookies-dialog *::after {
+          box-sizing: inherit;
+        }
+        .dac-dialog {
           width: 100%;
-          padding: 20px;
-          background-color: white;
-          border-radius: 10px;
+          padding: calc(var(--dac-size) * 1.3);
+          background-color: var(--dac-color-light);
+          border-radius: var(--dac-border-radius);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .dialog h2 {
-          font-size: 20px;
-          margin-bottom: 10px;
+        .dac-dialog > * + * {
+          margin-top: var(--dac-size);
         }
-        .dialog p {
-          font-size: 16px;
-          margin-bottom: 20px;
+        .dac-dialog h2 {
+          font-size: calc(var(--dac-size) * 1.3);
         }
-        .dialog-actions {
+        .dac-dialog p {
+          font-size: var(--dac-size);
+        }
+        .dac-dialog a {
+          border-bottom: 0;
+          color: var(--dac-color-primary);
+          text-decoration: underline;
+        }
+        .dac-dialog-actions {
           display: flex;
           justify-content: space-between;
         }
-        .dialog-action {
-          padding: 10px 20px;
-          background-color: #007bff;
-          color: white;
+        .dac-dialog-action {
+          padding: calc(var(--dac-size) * 0.75) calc(var(--dac-size) * 1.3);
+          background-color: var(--dac-color-primary);
+          color: var(--dac-color-light);
           border: none;
-          border-radius: 5px;
+          border-radius: calc(var(--dac-border-radius) / 2);
           cursor: pointer;
         }
-        .dialog-action:focus,
-        .dialog-action:hover {
+        .dac-dialog-action:focus,
+        .dac-dialog-action:hover {
           text-decoration: none;
           background-color: #0056b3;
         }
-        .dialog-action--link {
+        a.dac-dialog-action--link {
           font-weight: bold;
           text-decoration: none;
-          color: #ffffff;
-          background-color: #003bc6;
+          color: var(--dac-color-light);
+          background-color: var(--dac-color-primary);
         }
-        .dialog-action--link:focus,
-        .dialog-action--link:hover {
+        a.dac-dialog-action--link:focus,
+        a.dac-dialog-action--link:hover {
           text-decoration: underline;
           background-color: #002b91;
         }
-        .dialog-action--button {
-          background-color: #c33f38;
+        .dac-dialog-action--button {
+          background-color: var(--dac-color-secondary);
         }
-        .dialog-action--button:focus,
-        .dialog-action--button:hover {
+        .dac-dialog-action--button:focus,
+        .dac-dialog-action--button:hover {
           background-color: #a52f28;
         }
       </style>
-      <div class="dialog">
+      <div class="dac-dialog">
         <h2>Deny All Cookies</h2>
         <p>Thanks for using the free version of <a href="https://deny-all-cookies.mark.ie">Deny All Cookies</a>.</p>
         <p>
@@ -92,15 +110,15 @@ function handleFreeScript() {
           Upgrading to the paid version allows me to keep improving this
           product and to support my family.
         </p>
-        <div class="dialog-actions">
-          <a class="dialog-action dialog-action--link" target="_blank" href="https://deny-all-cookies.mark.ie">Upgrade Now</a>
-          <button class="dialog-action dialog-action--button">Close</button>
+        <div class="dac-dialog-actions">
+          <a class="dac-dialog-action dac-dialog-action--link" target="_blank" href="https://deny-all-cookies.mark.ie">Upgrade Now</a>
+          <button class="dac-dialog-action dac-dialog-action--button">Close</button>
         </div>
       </div>
     `
     document.body.appendChild(dialogElement);
     const dialog = document.querySelector("#deny-all-cookies-dialog");
-    dialog.querySelector(".dialog-action--button").addEventListener("click", () => {
+    dialog.querySelector(".dac-dialog-action--button").addEventListener("click", () => {
       dialog.close();
     });
     dialogElement.showModal();
