@@ -51,12 +51,6 @@ function handleFreeScript() {
         .dac-dialog > * + * {
           margin-top: var(--dac-size);
         }
-        .dac-dialog h2 {
-          font-size: calc(var(--dac-size) * 1.3);
-        }
-        .dac-dialog p {
-          font-size: var(--dac-size);
-        }
         .dac-dialog a {
           border-bottom: 0;
           color: var(--dac-color-primary);
