@@ -56,7 +56,7 @@ if (document.querySelector('#CybotCookiebotDialogBodyButtonDecline')) {
 }
 
 // Usercentrics
-// Test site 1: https://www.usercentrics.com
+// Test site 1: https://demodesk.com
 // Test site 2: https://londonspeakerbureau.com
 if (document.querySelector('[data-testid="uc-deny-all-button"]') || document.querySelector('.uc-deny-button')) {
   const confirmButton = document.querySelector('.uc-deny-all-button') || document.querySelector('.uc-deny-button');
@@ -289,7 +289,7 @@ if (document.querySelector('.cmptxt_btn_no')) {
   const confirmButton = document.querySelector('.cmptxt_btn_no');
   confirmButton.click();
 }
-// Found on https://tommy.com
+// Found on https://ie.tommy.com
 if (document.querySelector('[data-testid="reject-cookies-pvh-button"]')) {
   const confirmButton = document.querySelector('[data-testid="reject-cookies-pvh-button"]');
   confirmButton.click();
