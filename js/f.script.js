@@ -58,7 +58,7 @@ function handleFreeScript() {
         }
         .dac-dialog-actions {
           display: flex;
-          justify-content: space-between;
+          gap: var(--dac-size);
         }
         .dac-dialog-action {
           padding: calc(var(--dac-size) * 0.75) calc(var(--dac-size) * 1.3);
@@ -84,11 +84,12 @@ function handleFreeScript() {
           text-decoration: underline;
           background-color: #002b91;
         }
-        .dac-dialog-action--button {
+        button.dac-dialog-action--button {
+          margin-left: auto;
           background-color: var(--dac-color-secondary);
         }
-        .dac-dialog-action--button:focus,
-        .dac-dialog-action--button:hover {
+        button.dac-dialog-action--button:focus,
+        button.dac-dialog-action--button:hover {
           background-color: #a52f28;
         }
       </style>
@@ -106,6 +107,7 @@ function handleFreeScript() {
         </p>
         <div class="dac-dialog-actions">
           <a class="dac-dialog-action dac-dialog-action--link" target="_blank" href="https://deny-all-cookies.mark.ie">Upgrade Now</a>
+          <a class="dac-dialog-action dac-dialog-action--link" target="_blank" href="https://deny-all-cookies.mark.ie">More Info</a>
           <button class="dac-dialog-action dac-dialog-action--button">Close</button>
         </div>
       </div>
