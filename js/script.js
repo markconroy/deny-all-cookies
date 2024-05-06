@@ -124,7 +124,7 @@ if (document.querySelector("#onetrust-reject-all-handler")) {
 }
 
 // Didomi
-// Decline all button is present
+// Test site 1: https://www.independent.ie
 if (document.querySelector("#didomi-notice-learn-more-button")) {
   // Didomi if there is no decline all button, but is a 'Learn more' button.
   const dialogOpener = document.querySelector(
@@ -132,14 +132,21 @@ if (document.querySelector("#didomi-notice-learn-more-button")) {
   );
   dialogOpener.click();
   setTimeout(() => {
-    const savePreferencesButton = document.querySelector(
-      ".didomi-consent-popup-actions .didomi-components-button"
-    );
-    const preferenceItems = document.querySelectorAll(
-      ".didomi-components-radio__option--disagree"
-    );
-    uncheckAll(preferenceItems);
+    const savePreferencesButton = document.querySelector(".didomi-consent-popup-footer .didomi-consent-popup-actions .didomi-components-button");
+
+    if (document.querySelector("#didomi-radio-option-disagree-to-all")) {
+      const disagreeToAll = document.querySelector('#didomi-radio-option-disagree-to-all');
+      disagreeToAll.click();
+    } else {
+      const disagreeButtonsContainers = document.querySelectorAll(".didomi-consent-popup-data-processing__buttons");
+      disagreeButtonsContainers.forEach((container) => {
+        const disagreeButton = container.querySelector("button");
+        disagreeButton.click();
+      });
+    }
+
     savePreferencesButton.click();
+
   }, timeoutTime);
 }
 
