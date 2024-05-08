@@ -310,6 +310,13 @@ if (document.querySelector(".orejime-Button--decline")) {
   }, timeoutTime);
 }
 
+// Drupal EU Cookie Compliance:
+// Test site 1: https://www.drupaleasy.com
+if (document.querySelector(".eu-cookie-compliance-buttons .decline-button")) {
+  const confirmButton = document.querySelector(".eu-cookie-compliance-buttons .decline-button");
+  confirmButton.click();
+}
+
 // Google:
 // Test site 1: https://www.google.com
 // @todo - works for google.com but not https://www.google.com/search?q=cookies
