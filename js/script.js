@@ -97,6 +97,7 @@ if (
 // OneTrust
 // Test site 1: https://stackoverflow.com
 // Test site 2: https://www.rte.ie
+// Test site 2: https://www.trello.com
 // Decline all button is present
 if (document.querySelector("#onetrust-reject-all-handler")) {
   const confirmButton = document.querySelector("#onetrust-reject-all-handler");
@@ -153,6 +154,14 @@ if (document.querySelector("#didomi-notice-learn-more-button")) {
 // Osana
 if (document.querySelector(".osano-cm-denyAll")) {
   const confirmButton = document.querySelector(".osano-cm-denyAll");
+  confirmButton.click();
+}
+
+// Adroll:
+// Test site 1: https://www.adroll.com
+// Test site 2: https://www.drupaleasy.com
+if (document.querySelector("#adroll_consent_reject")) {
+  const confirmButton = document.querySelector("#adroll_consent_reject");
   confirmButton.click();
 }
 
