@@ -165,6 +165,14 @@ if (document.querySelector("#adroll_consent_reject")) {
   confirmButton.click();
 }
 
+// Klaro:
+// Test site 1: https://klaro.org
+// Test site 2: https://www.1xinternet.de
+if (document.querySelector('#klaro .cn-decline')) {
+  const confirmButton = document.querySelector('#klaro .cn-decline');
+  confirmButton.click();
+}
+
 // TrustArc:
 // Decline all button is present
 if (document.querySelector("#truste-consent-required")) {
