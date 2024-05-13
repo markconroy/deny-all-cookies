@@ -408,3 +408,9 @@ if (document.querySelector("#denyAll")) {
   const confirmButton = document.querySelector("#denyAll");
   confirmButton.click();
 }
+
+// Found on https://events.drupal.org
+if (document.querySelector("#drupalorg-crosssite-gdpr .no")) {
+  const confirmButton = document.querySelector("#drupalorg-crosssite-gdpr .no");
+  confirmButton.click();
+}
