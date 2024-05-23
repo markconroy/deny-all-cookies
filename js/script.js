@@ -1,7 +1,7 @@
 const timeoutTime = 200;
 function uncheckAll(items) {
   items.forEach((item) => {
-    if (item.hasAttribute("checked")) {
+    if (item.checked) {
       item.click();
     }
   });
@@ -74,6 +74,7 @@ if (document.querySelector("#CybotCookiebotDialogBodyButtonDecline")) {
 // Usercentrics
 // Test site 1: https://demodesk.com
 // Test site 2: https://londonspeakerbureau.com
+// Test site 3: https://www.trivago.ie
 if (
   document.querySelector('[data-testid="uc-deny-all-button"]') ||
   document.querySelector(".uc-deny-button")
@@ -133,13 +134,19 @@ if (document.querySelector("#didomi-notice-learn-more-button")) {
   );
   dialogOpener.click();
   setTimeout(() => {
-    const savePreferencesButton = document.querySelector(".didomi-consent-popup-footer .didomi-consent-popup-actions .didomi-components-button");
+    const savePreferencesButton = document.querySelector(
+      ".didomi-consent-popup-footer .didomi-consent-popup-actions .didomi-components-button"
+    );
 
     if (document.querySelector("#didomi-radio-option-disagree-to-all")) {
-      const disagreeToAll = document.querySelector('#didomi-radio-option-disagree-to-all');
+      const disagreeToAll = document.querySelector(
+        "#didomi-radio-option-disagree-to-all"
+      );
       disagreeToAll.click();
     } else {
-      const disagreeButtonsContainers = document.querySelectorAll(".didomi-consent-popup-data-processing__buttons");
+      const disagreeButtonsContainers = document.querySelectorAll(
+        ".didomi-consent-popup-data-processing__buttons"
+      );
       disagreeButtonsContainers.forEach((container) => {
         const disagreeButton = container.querySelector("button");
         disagreeButton.click();
@@ -147,7 +154,6 @@ if (document.querySelector("#didomi-notice-learn-more-button")) {
     }
 
     savePreferencesButton.click();
-
   }, timeoutTime);
 }
 
@@ -168,8 +174,8 @@ if (document.querySelector("#adroll_consent_reject")) {
 // Klaro:
 // Test site 1: https://klaro.org
 // Test site 2: https://www.1xinternet.de
-if (document.querySelector('#klaro .cn-decline')) {
-  const confirmButton = document.querySelector('#klaro .cn-decline');
+if (document.querySelector("#klaro .cn-decline")) {
+  const confirmButton = document.querySelector("#klaro .cn-decline");
   confirmButton.click();
 }
 
@@ -290,6 +296,44 @@ if (document.querySelector('[data-cookiefirst-action="reject"]')) {
   }, timeoutTime);
 }
 
+// EZOIC:
+// Test site 1: https://www.ezoic.com
+// Test site 2: https://totalcampingireland.ie
+if (document.querySelector("#ez-accept-necessary")) {
+  const confirmButton = document.querySelector("#ez-accept-necessary");
+  confirmButton.click();
+} else if (document.querySelector("#ez-manage-settings")) {
+  const dialogOpener = document.querySelector("#ez-manage-settings");
+  dialogOpener.click();
+  setTimeout(() => {
+    if (document.querySelector(".ezAllPurposes")) {
+      const preferenceItems = [];
+      const preferenceItemsLegitimateInterest = document.querySelectorAll(
+        '.ez-cmp-purpose-legitimate-interest input[type="checkbox"]'
+      );
+      const preferenceItemsConsent = document.querySelectorAll(
+        '.ez-cmp-purpose-consent input[type="checkbox"]'
+      );
+
+      preferenceItemsLegitimateInterest.forEach((item) => {
+        preferenceItems.push(item);
+      });
+      preferenceItemsConsent.forEach((item) => {
+        preferenceItems.push(item);
+      });
+      console.log(preferenceItems);
+      uncheckAll(preferenceItems);
+      const savePreferencesButton = document.querySelector("#ez-save-settings");
+      savePreferencesButton.click();
+    }
+  }, timeoutTime);
+}
+
+// Complianz:
+// Test site 1: https://complianz.io
+// Test site 2: https://totalcampingireland.ie
+
+
 // Orejime:
 // Test site 1: https://orejime.empreintedigitale.fr/
 // Test site 2: https://lcrfm.ie/
@@ -321,7 +365,9 @@ if (document.querySelector(".orejime-Button--decline")) {
 // Drupal EU Cookie Compliance:
 // Test site 1: https://www.drupaleasy.com
 if (document.querySelector(".eu-cookie-compliance-buttons .decline-button")) {
-  const confirmButton = document.querySelector(".eu-cookie-compliance-buttons .decline-button");
+  const confirmButton = document.querySelector(
+    ".eu-cookie-compliance-buttons .decline-button"
+  );
   confirmButton.click();
 }
 
