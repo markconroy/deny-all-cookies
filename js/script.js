@@ -490,3 +490,9 @@ if (document.querySelector("#drupalorg-crosssite-gdpr .no")) {
   const confirmButton = document.querySelector("#drupalorg-crosssite-gdpr .no");
   confirmButton.click();
 }
+
+// Found on https://wise.com
+if (document.querySelector("#twcc__decline-button")) {
+  const confirmButton = document.querySelector("#twcc__decline-button");
+  confirmButton.click();
+}
