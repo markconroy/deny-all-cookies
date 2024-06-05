@@ -332,7 +332,37 @@ if (document.querySelector("#ez-accept-necessary")) {
 // Complianz:
 // Test site 1: https://complianz.io
 // Test site 2: https://totalcampingireland.ie
+if (document.querySelector(".cmplz-deny")) {
+  const confirmButton = document.querySelector(".cmplz-deny");
+  confirmButton.click();
+} else if (document.querySelector(".cmplz-view-preferences")) {
+  const dialogOpener = document.querySelector(".cmplz-view-preferences");
+  dialogOpener.click();
+  setTimeout(() => {
+    if (document.querySelector(".cmplz-categories")) {
+      const preferenceItems = document.querySelectorAll("#cmplz-statistics-optin");
+      uncheckAll(preferenceItems);
+      const savePreferencesButton = document.querySelector(".cmplz-save-preferences");
+      savePreferencesButton.click();
+    }
+  }, timeoutTime);
+}
 
+// EasyCookie:
+// Test site 1: https://www.easycookie.io
+if (document.querySelector("#ecToggleTabs")) {
+  const dialogOpener = document.querySelector("#ecToggleTabs");
+  dialogOpener.click();
+  setTimeout(() => {
+    if (document.querySelector(".ec-cookie-tabs__content")) {
+      const preferenceItems = document.querySelectorAll(".ec-cookies-type input");
+      uncheckAll(preferenceItems);
+      // @TODO - there is no save button, so this is not working.
+      // const savePreferencesButton = document.querySelector("");
+      // savePreferencesButton.click();
+    }
+  }, timeoutTime);
+}
 
 // Orejime:
 // Test site 1: https://orejime.empreintedigitale.fr/
