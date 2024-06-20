@@ -99,6 +99,7 @@ if (
 // Test site 1: https://stackoverflow.com
 // Test site 2: https://www.rte.ie
 // Test site 2: https://www.trello.com
+// Test site 4: https://www.paramountplus.com
 // Decline all button is present
 if (document.querySelector("#onetrust-reject-all-handler")) {
   const confirmButton = document.querySelector("#onetrust-reject-all-handler");
