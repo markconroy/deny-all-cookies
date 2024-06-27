@@ -298,10 +298,6 @@ if (document.querySelector('[data-cookiefirst-action="reject"]')) {
   }, timeoutTime);
 }
 
-// @todo: Admiral:
-// Test site 1: https://www.getadmiral.com
-// Test site 2: https://www.distractify.com
-
 // Civicuk:
 // Test site 1: https://www.civicuk.com
 // Test site 2: https://www.newcastlesupportdirectory.org.uk/
@@ -479,6 +475,24 @@ if (document.querySelector(".iubenda-cs-reject-btn")) {
     savePreferencesButton.click();
   }, timeoutTime);
 }
+
+// Generic catch alls
+const rejectAllButtons = document.querySelectorAll(
+  "button, input[type='button'], [role='button']"
+);
+const rejectAllStrings = [
+  "reject",
+  "reject all",
+  "decline",
+  "decline all",
+  "deny",
+  "deny all",
+];
+rejectAllButtons.forEach((button) => {
+  if (rejectAllStrings.some((string) => button.textContent.toLowerCase().includes(string))) {
+    button.click();
+  }
+});
 
 // Items I am not sure of the provider
 // Found on https://bosch-home.ie
