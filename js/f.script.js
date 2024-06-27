@@ -1,7 +1,7 @@
 function handleDenyAllCookiesScript() {
   const denyAllCookiesBookmarkletScript = document.createElement("script");
   denyAllCookiesBookmarkletScript.src =
-    "https://deny-all-cookies.mark.ie/js/script.js";
+    "https://dac.mark.ie/js/script.js";
   denyAllCookiesBookmarkletScript.setAttribute("id", "deny-all-cookies");
   const denyAllCookiesBookmarkletBody = document.querySelector("body");
   denyAllCookiesBookmarkletBody.appendChild(denyAllCookiesBookmarkletScript);
@@ -95,10 +95,10 @@ function handleFreeScript() {
       </style>
       <div class="dac-dialog">
         <h2>Deny All Cookies</h2>
-        <p>Thanks for using the free version of <a href="https://deny-all-cookies.mark.ie">Deny All Cookies</a>.</p>
+        <p>Thanks for using the free version of <a href="https://dac.mark.ie">Deny All Cookies</a>.</p>
         <p>
           If you'd like to permanently remove this notice, you can
-          <a href="https://deny-all-cookies.mark.ie">upgrade to the
+          <a href="https://dac.mark.ie">upgrade to the
           paid version</a>.
         </p>
         <p>
@@ -106,8 +106,8 @@ function handleFreeScript() {
           product and to support my family.
         </p>
         <div class="dac-dialog-actions">
-          <a class="dac-dialog-action dac-dialog-action--link" target="_blank" href="https://deny-all-cookies.mark.ie">Upgrade Now</a>
-          <a class="dac-dialog-action dac-dialog-action--link" target="_blank" href="https://deny-all-cookies.mark.ie">More Info</a>
+          <a class="dac-dialog-action dac-dialog-action--link" target="_blank" href="https://dac.mark.ie">Upgrade Now</a>
+          <a class="dac-dialog-action dac-dialog-action--link" target="_blank" href="https://dac.mark.ie">More Info</a>
           <button class="dac-dialog-action dac-dialog-action--button">Close</button>
         </div>
       </div>
