@@ -302,7 +302,7 @@ if (document.querySelector('[data-cookiefirst-action="reject"]')) {
 // Test site 1: https://www.civicuk.com
 // Test site 2: https://www.newcastlesupportdirectory.org.uk/
 if (document.querySelector("#ccc-notify-reject") || document.querySelector("#ccc-reject-settings")) {
-  const confirmButton = document.querySelector("#ccc-notify-reject");
+  const confirmButton = document.querySelector("#ccc-notify-reject") || document.querySelector("#ccc-reject-settings");
   confirmButton.click();
 }
 
