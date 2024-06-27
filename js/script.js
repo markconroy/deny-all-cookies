@@ -100,6 +100,7 @@ if (
 // Test site 2: https://www.rte.ie
 // Test site 2: https://www.trello.com
 // Test site 4: https://www.paramountplus.com
+// Test site 5: https://community.cloudflare.com
 // Decline all button is present
 if (document.querySelector("#onetrust-reject-all-handler")) {
   const confirmButton = document.querySelector("#onetrust-reject-all-handler");
@@ -295,6 +296,18 @@ if (document.querySelector('[data-cookiefirst-action="reject"]')) {
       savePreferencesButton.click();
     }
   }, timeoutTime);
+}
+
+// @todo: Admiral:
+// Test site 1: https://www.getadmiral.com
+// Test site 2: https://www.distractify.com
+
+// Civicuk:
+// Test site 1: https://www.civicuk.com
+// Test site 2: https://www.newcastlesupportdirectory.org.uk/
+if (document.querySelector("#ccc-notify-reject") || document.querySelector("#ccc-reject-settings")) {
+  const confirmButton = document.querySelector("#ccc-notify-reject");
+  confirmButton.click();
 }
 
 // EZOIC:
