@@ -11,10 +11,10 @@ function handleDenyAllCookiesScript() {
 
 // Random number between 1 and 4.
 // This means we'll show the dialog approximately 25% of the time.
-const randomNumber = Math.floor(Math.random() * 4) + 1;
+const dacRandomNumber = Math.floor(Math.random() * 4) + 1;
 
 function handleFreeScript() {
-  if (randomNumber === 1) {
+  if (dacRandomNumber === 1) {
     const dialogElement = document.createElement("dialog");
     dialogElement.setAttribute("id", "deny-all-cookies-dialog");
     dialogElement.innerHTML = `
